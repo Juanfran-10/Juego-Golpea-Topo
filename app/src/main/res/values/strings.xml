@@ -51,4 +51,10 @@
     <string name="btJugarDeNuevo">JUGAR DE NUEVO</string>
     <string name="btIrMenu">MENÚ</string>
     <string name="btVerPuntos">VER PUNTUACIÓN</string>
+
+    <!-- DATOS DEL JUGADOR EN LA LISTA -->
+    <string name="nombreJugador">Nombre</string>
+    <string name="correoJugador">Correo</string>
+    <string name="puntosJugador">Puntos</string>
+
 </resources>
