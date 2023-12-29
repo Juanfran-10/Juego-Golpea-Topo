@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">JuegoGolpeaTopo</string>
+
+    <!--MAIN ACTIVITY-->
+    <string name="btLogin">Iniciar Sesion</string>
+    <string name="btRegistro">Registarme</string>
+
+    <!--REGISTRO-->
+    <string name="edtCorreo">Correo electrónico</string>
+    <string name="edtPassword">Contraseña</string>
+    <string name="edtNombre">Nombre</string>
+    <string name="edtEdad">Edad</string>
+    <string name="edtPais">Pais</string>
+    <string name="txtFecha">Fecha</string>
+    <string name="btRegistroR">Registrar</string>
+
+    <!--LOGIN-->
+    <string name="edtCorreoLogin">Correo electrónico</string>
+    <string name="edtPasswordLogin">Contraseña</string>
+    <string name="btLoginL">Entrar</string>
+
+    <!--MENU-->
+    <string name="txtMiPuntuacion">Mi Puntuacion</string>
+    <string name="txtMiPerfil">Mi Perfil</string>
+    <string name="txtTopos"> -- </string>
+    <string name="txtUid"> -- </string>
+    <string name="txtCorreo"> -- </string>
+    <string name="txtNombre"> -- </string>
+    <string name="txtEdad"> -- </string>
+    <string name="txtPais"> -- </string>
+    <string name="txtFechaM"> -- </string>
+    <string name="txtMenu">Menu</string>
+    <string name="btJugar">Jugar</string>
+    <string name="btEditarDatos">Editar datos</string>
+    <string name="btCambiarPassword">Cambiar Contraseña</string>
+    <string name="btPuntuaciones">Puntuaciones</string>
+    <string name="btAcercaDe">Acerca de</string>
+    <string name="btCerrarSesion">Cerrar Sesion</string>
+
+    <!--ESCENARIO JUEGO-->
+    <string name="txtContador"> 0 </string>
+    <string name="txtNombreEJ"> ---- </string>
+    <string name="txtTiempo"> 0S</string>
+    <string name="txtAncho"> -- </string>
+    <string name="txtAlto"> -- </string>
+
+    <!--GAME OVER-->
+    <string name="txtSeAcaboTiempo">!Se acabó el tiempo¡</string>
+    <string name="txtNumGolpeos">Has golpeado</string>
+    <string name="txtNum"> -- </string>
+    <string name="btJugarDeNuevo">JUGAR DE NUEVO</string>
+    <string name="btIrMenu">MENÚ</string>
+    <string name="btVerPuntos">VER PUNTUACIÓN</string>
+</resources>

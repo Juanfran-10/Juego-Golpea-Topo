@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "861100914108",
+    "project_id": "juego-de-golpear-topo",
+    "storage_bucket": "juego-de-golpear-topo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861100914108:android:53490ed4d1ea380155a7b9",
+        "android_client_info": {
+          "package_name": "com.example.juegogolpeatopo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeiTThOb_vmnofL-EeYZMxL1Rz4eYVaKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".Menu">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <!--Datos Perfil Jugador-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--TITULO MI PERFIL-->
+            <TextView
+                android:id="@+id/txtMiPerfil"
+                android:text="@string/txtMiPerfil"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/miMarron"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imagenPerfil"
+                android:src="@drawable/mario"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp"/>
+
+            <!--UID-->
+            <TextView
+                android:id="@+id/txtUid"
+                android:text="@string/txtUid"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--CORREO-->
+            <TextView
+                android:id="@+id/txtCorreo"
+                android:text="@string/txtCorreo"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--NOMBRE DE USUARIO-->
+            <TextView
+                android:id="@+id/txtNombre"
+                android:text="@string/txtNombre"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--EDAD-->
+            <TextView
+                android:id="@+id/txtEdad"
+                android:text="@string/txtEdad"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--PAIS-->
+            <TextView
+                android:id="@+id/txtPais"
+                android:text="@string/txtPais"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!--FECHA DE REGISTRO-->
+            <TextView
+                android:id="@+id/txtFechaM"
+                android:text="@string/txtFechaM"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--TITULO PUNTUACION-->
+        <TextView
+            android:id="@+id/txtMiPuntuacion"
+            android:text="@string/txtMiPuntuacion"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:textColor="@color/miMarron"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--TOPOS-->
+            <TextView
+                android:id="@+id/txtTopos"
+                android:text="@string/txtTopos"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!--IMAGEN-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imagen"
+                android:src="@drawable/img_menu"
+                android:layout_marginStart="20dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <View
+            android:background="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"/>
+
+        <!--TITULO MENU-->
+        <TextView
+            android:id="@+id/txtMenu"
+            android:text="@string/txtMenu"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@color/miMarron"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <!--BOTON JUGAR-->
+        <Button
+            android:id="@+id/btJugar"
+            android:text="@string/btJugar"
+            android:background="@drawable/boton_personalizado"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!--BOTON EDITAR DATOS-->
+        <Button
+            android:id="@+id/btEditarDatos"
+            android:text="@string/btEditarDatos"
+            android:background="@drawable/boton_personalizado"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!--BOTON CAMBIAR PASSWORD-->
+        <Button
+            android:id="@+id/btCambiarPassword"
+            android:text="@string/btCambiarPassword"
+            android:background="@drawable/boton_personalizado"
+            android:textSize="20sp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!--BOTON PUNTUACIONES-->
+        <Button
+            android:id="@+id/btPuntuaciones"
+            android:text="@string/btPuntuaciones"
+            android:background="@drawable/boton_personalizado"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!--BOTON ACERCA DE-->
+        <Button
+            android:id="@+id/btAcercaDe"
+            android:text="@string/btAcercaDe"
+            android:background="@drawable/boton_personalizado"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
+
+        <!--BOTON CERRAR SESION-->
+        <Button
+            android:id="@+id/btCerrarSesion"
+            android:text="@string/btCerrarSesion"
+            android:background="@drawable/boton_personalizado"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="VisualLintButtonSize" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

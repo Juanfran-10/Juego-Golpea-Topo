@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/pantalla_juego"
+    tools:context=".EscenarioJuego">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--INFORMACION-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!--X Y-->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--X-->
+                <TextView
+                    android:id="@+id/txtAncho"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtAncho"
+                    android:textColor="#1A237E" />
+
+                <!--Y-->
+                <TextView
+                    android:id="@+id/txtAlto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txtAlto"
+                    android:textColor="#1A237E" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/mazo"
+                tools:ignore="ImageContrastCheck" />
+
+            <!--CONTADOR-->
+            <TextView
+                android:id="@+id/txtContador"
+                android:text="@string/txtContador"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_width="50dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <!--NOMBRE JUGADOR-->
+            <TextView
+                android:id="@+id/txtNombreEJ"
+                android:text="@string/txtNombreEJ"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!--ANIMACIÓN-->
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="15dp"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="tiempo.json"
+                app:lottie_imageAssetsFolder="assets"
+                app:lottie_loop="true"
+                tools:ignore="ImageContrastCheck" />
+
+            <!--TIEMPO-->
+            <TextView
+                android:id="@+id/txtTiempo"
+                android:text="@string/txtTiempo"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--TOPO-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgTopo"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:src="@drawable/topo"
+                tools:ignore="ImageContrastCheck" />
+            
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
