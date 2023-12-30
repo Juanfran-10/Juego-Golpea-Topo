@@ -56,5 +56,15 @@
     <string name="nombreJugador">Nombre</string>
     <string name="correoJugador">Correo</string>
     <string name="puntosJugador">Puntos</string>
+    <string name="edadJugador">Edad</string>
+    <string name="paisJugador">Pais</string>
+
+    <!-- DETALLE DEL JUGADOR -->
+    <string name="titulo"> INFORMACION DEL JUGADOR </string>
+    <string name="nombreDetalle"> Nombre </string>
+    <string name="correoDetalle"> Correo </string>
+    <string name="edadDetalle"> Edad </string>
+    <string name="paisDetalle"> Pais </string>
+    <string name="puntosDetalle"> Puntos </string>
 
 </resources>
