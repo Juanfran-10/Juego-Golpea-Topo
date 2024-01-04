@@ -156,6 +156,7 @@ public class Menu extends AppCompatActivity {
         btCambiarPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(Menu.this, CambioDePassword.class));
                 Toast.makeText(Menu.this, "Cambiando password", Toast.LENGTH_SHORT).show();
             }
         });

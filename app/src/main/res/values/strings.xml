@@ -67,4 +67,9 @@
     <string name="paisDetalle"> Pais </string>
     <string name="puntosDetalle"> Puntos </string>
 
+    <!--  -->
+    <string name="actualPassword">Contraseña actual</string>
+    <string name="nuevoPassword">Nueva contraseña</string>
+    <string name="cambiarPassword">Cambiar constraseña</string>
+
 </resources>
