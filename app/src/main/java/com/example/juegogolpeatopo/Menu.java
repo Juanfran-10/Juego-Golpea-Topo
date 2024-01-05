@@ -8,6 +8,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -72,6 +73,7 @@ public class Menu extends AppCompatActivity {
     private String[] permisosAlmacenamiento;
     private Uri imagenUri;
     private String perfil;
+    private Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +110,8 @@ public class Menu extends AppCompatActivity {
         imagenPerfil = (CircleImageView) findViewById(R.id.imagenPerfil);
 
         referenciaAlmacenamiento = FirebaseStorage.getInstance().getReference();
+
+        dialog = new Dialog(Menu.this);
 
         //Cambiamos los tipos de letra
         txtMiPerfil.setTypeface(tf);
@@ -157,7 +161,6 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Menu.this, CambioDePassword.class));
-                Toast.makeText(Menu.this, "Cambiando password", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -171,9 +174,7 @@ public class Menu extends AppCompatActivity {
 
         btAcercaDe.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(Menu.this, "ACERCA DE", Toast.LENGTH_SHORT).show();
-            }
+            public void onClick(View v) { acercaDe(tf); }
         });
 
         btCerrarSesion.setOnClickListener(new View.OnClickListener() {
@@ -407,5 +408,29 @@ public class Menu extends AppCompatActivity {
             }
         });
         builder.create().show();
+    }
+
+    private void acercaDe(Typeface tf){
+        TextView txtDesarrolladoPor, txtDevNombre;
+        Button ok;
+
+        dialog.setContentView(R.layout.acerca_de);
+
+        txtDesarrolladoPor = dialog.findViewById(R.id.txtDesarrolladoPor);
+        txtDevNombre = dialog.findViewById(R.id.txtDevNombre);
+        ok = dialog.findViewById(R.id.ok);
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        txtDesarrolladoPor.setTypeface(tf);
+        txtDevNombre.setTypeface(tf);
+        ok.setTypeface(tf);
+
+        dialog.show();
     }
 }

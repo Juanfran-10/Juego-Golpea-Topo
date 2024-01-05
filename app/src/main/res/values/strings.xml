@@ -67,9 +67,14 @@
     <string name="paisDetalle"> Pais </string>
     <string name="puntosDetalle"> Puntos </string>
 
-    <!--  -->
+    <!-- CAMBIO DE PASSWORD -->
     <string name="actualPassword">Contraseña actual</string>
     <string name="nuevoPassword">Nueva contraseña</string>
     <string name="cambiarPassword">Cambiar constraseña</string>
+
+    <!-- ACERCA DE -->
+    <string name="txtDesarrolladoPor">Desarrollado por</string>
+    <string name="txtDevNombre">JUAN FRANCISCO MUÑOZ PEREZ</string>
+    <string name="ok">OK</string>
 
 </resources>
