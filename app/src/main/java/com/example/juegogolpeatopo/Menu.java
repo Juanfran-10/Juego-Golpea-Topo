@@ -65,6 +65,7 @@ public class Menu extends AppCompatActivity {
     private Button btPuntuaciones;
     private Button btAcercaDe;
     private Button btCerrarSesion;
+    private Button btBorrarJugador;
     private CircleImageView imagenPerfil;
     private StorageReference referenciaAlmacenamiento;
     private String rutaAlmacenamiento = "FotosDePerfil/*";
@@ -106,6 +107,7 @@ public class Menu extends AppCompatActivity {
         btCambiarPassword = (Button) findViewById(R.id.btCambiarPassword);
         btPuntuaciones = (Button) findViewById(R.id.btPuntuaciones);
         btAcercaDe = (Button) findViewById(R.id.btAcercaDe);
+        btBorrarJugador = (Button) findViewById(R.id.btBorrarJugador);
         btCerrarSesion = (Button) findViewById(R.id.btCerrarSesion);
         imagenPerfil = (CircleImageView) findViewById(R.id.imagenPerfil);
 
@@ -130,6 +132,7 @@ public class Menu extends AppCompatActivity {
         btCambiarPassword.setTypeface(tf);
         btPuntuaciones.setTypeface(tf);
         btAcercaDe.setTypeface(tf);
+        btBorrarJugador.setTypeface(tf);
         btCerrarSesion.setTypeface(tf);
 
         btJugar.setOnClickListener(new View.OnClickListener() {
@@ -175,6 +178,13 @@ public class Menu extends AppCompatActivity {
         btAcercaDe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { acercaDe(tf); }
+        });
+
+        btBorrarJugador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mostrarDialogoConfirmacion();
+            }
         });
 
         btCerrarSesion.setOnClickListener(new View.OnClickListener() {
@@ -432,5 +442,56 @@ public class Menu extends AppCompatActivity {
         ok.setTypeface(tf);
 
         dialog.show();
+    }
+
+    private void mostrarDialogoConfirmacion() {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle("Confirmación");
+        builder.setMessage("¿Está seguro de que desea borrar su perfil?");
+
+        builder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                borrarUsuario();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                // No hacer nada, simplemente cerrar el diálogo
+            }
+        });
+
+        builder.show();
+    }
+
+    private void borrarUsuario() {
+        FirebaseUser user = auth.getCurrentUser();
+
+        if (user != null) {
+            // Obtener el UID del usuario
+            String uid = user.getUid();
+
+            // Eliminar usuario de Firebase Authentication
+            user.delete().addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("JUGADORES").child(uid);
+                    userRef.removeValue().addOnCompleteListener(task1 -> {
+                        if (task1.isSuccessful()) {
+                            Toast.makeText(this, "Usuario eliminado correctamente", Toast.LENGTH_SHORT).show();
+
+                            // Cerrar sesión después de borrar el usuario
+                            auth.signOut();
+                            startActivity(new Intent(Menu.this, Login.class));
+                        } else {
+                            Toast.makeText(this, "Error al borrar los datos del usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(this, "Error al borrar el usuario", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }

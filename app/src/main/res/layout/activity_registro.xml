@@ -83,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/edtEdad"
                 android:importantForAutofill="no"
-                android:inputType="text"
+                android:inputType="number"
                 android:minHeight="48dp"
                 tools:ignore="VisualLintTextFieldSize" />
 

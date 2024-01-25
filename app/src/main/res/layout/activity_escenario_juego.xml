@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,77 +18,91 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:weightSum="6"
+            android:background="#000000"
             android:orientation="horizontal">
 
-            <!--X Y-->
+
+            <!--X Y Y-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_weight="1">
 
                 <!--X-->
                 <TextView
                     android:id="@+id/txtAncho"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/txtAncho"
-                    android:textColor="#1A237E" />
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
                 <!--Y-->
                 <TextView
                     android:id="@+id/txtAlto"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@string/txtAlto"
-                    android:textColor="#1A237E" />
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="15dp"
                 android:src="@drawable/mazo"
-                tools:ignore="ImageContrastCheck" />
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"/>
 
             <!--CONTADOR-->
             <TextView
                 android:id="@+id/txtContador"
                 android:text="@string/txtContador"
+                android:textColor="#ffffff"
                 android:textSize="20sp"
-                android:layout_marginStart="10dp"
-                android:layout_width="50dp"
+                android:layout_marginStart="3dp"
                 android:gravity="center"
-                android:layout_height="wrap_content"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
-            <!--NOMBRE JUGADOR-->
+            <!--NOMBRE DEL JUGADOR-->
             <TextView
                 android:id="@+id/txtNombreEJ"
                 android:text="@string/txtNombreEJ"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                android:layout_marginStart="3dp"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
             <!--ANIMACIÓN-->
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="15dp"
-                app:lottie_autoPlay="true"
-                app:lottie_fileName="tiempo.json"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="3dp"
                 app:lottie_imageAssetsFolder="assets"
+                app:lottie_fileName="tiempo.json"
                 app:lottie_loop="true"
-                tools:ignore="ImageContrastCheck" />
+                app:lottie_autoPlay="true"
+                android:layout_weight="1"/>
 
             <!--TIEMPO-->
             <TextView
                 android:id="@+id/txtTiempo"
                 android:text="@string/txtTiempo"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
+                android:textColor="#ffffff"
+                android:layout_marginStart="3dp"
+                android:textSize="15sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -103,7 +118,7 @@
                 android:layout_height="180dp"
                 android:src="@drawable/topo"
                 tools:ignore="ImageContrastCheck" />
-            
+
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>

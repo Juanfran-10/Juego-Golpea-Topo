@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JuegoGolpeaTopo</string>
+    <string name="app_name">Golpea al topo</string>
 
     <!--MAIN ACTIVITY-->
     <string name="btLogin">Iniciar Sesion</string>
@@ -36,6 +36,7 @@
     <string name="btPuntuaciones">Puntuaciones</string>
     <string name="btAcercaDe">Acerca de</string>
     <string name="btCerrarSesion">Cerrar Sesion</string>
+    <string name="btBorrarJugador">Borrar Perfil</string>
 
     <!--ESCENARIO JUEGO-->
     <string name="txtContador"> 0 </string>

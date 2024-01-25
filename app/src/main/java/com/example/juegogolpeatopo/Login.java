@@ -3,6 +3,9 @@ package com.example.juegogolpeatopo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity {
     //Declaración de variables
@@ -25,6 +30,7 @@ public class Login extends AppCompatActivity {
     private EditText edtPasswordLogin;
     private Button btLoginL;
     private FirebaseAuth auth;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,26 +69,36 @@ public class Login extends AppCompatActivity {
                 }
             }
         });
+
+        progressDialog = new ProgressDialog(Login.this);
+        progressDialog.setMessage("Iniciando, espere por favor");
+        progressDialog.setCancelable(false);
     }
 
     //Método para iniciar sesión al jugador
     private void LoginJugador(String correo, String password) {
+        progressDialog.show();
         auth.signInWithEmailAndPassword(correo, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            progressDialog.dismiss();
                             FirebaseUser user = auth.getCurrentUser();
                             startActivity(new Intent(Login.this, Menu.class));
                             assert user != null;//Confirmamos que el usuario no es nulo
                             Toast.makeText(Login.this, "Bienvenido/a " + user.getEmail(), Toast.LENGTH_SHORT).show();
                             finish();
+                        }else{
+                            progressDialog.dismiss();
+                            Toast.makeText(Login.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
                         }
                     }
                     //Si falla el logeo nos muestra el mensaje
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
                         Toast.makeText(Login.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

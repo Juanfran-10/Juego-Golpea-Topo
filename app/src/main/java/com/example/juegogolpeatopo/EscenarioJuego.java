@@ -1,10 +1,12 @@
 package com.example.juegogolpeatopo;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -53,6 +55,8 @@ public class EscenarioJuego extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escenario_juego);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+
         txtContador = (TextView) findViewById(R.id.txtContador);
         txtNombreEJ = (TextView) findViewById(R.id.txtNombreEJ);
         txtTiempo = (TextView) findViewById(R.id.txtTiempo);
@@ -97,6 +101,16 @@ public class EscenarioJuego extends AppCompatActivity {
                 }
             }
         });
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+
+            }
+        };
+
+        // Agregar el callback al dispatcher
+        getOnBackPressedDispatcher().addCallback(this, callback);
     }
 
     //Método para obtener el tamaño de la pantalla
@@ -203,11 +217,12 @@ public class EscenarioJuego extends AppCompatActivity {
         btVerPuntos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(EscenarioJuego.this, "Vamos a ver los puntos", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(EscenarioJuego.this, Puntos.class));
             }
         });
 
         miDialog.show();
+        miDialog.setCancelable(false);
     }
 
     private void GuardarResultados(String key, int topos){

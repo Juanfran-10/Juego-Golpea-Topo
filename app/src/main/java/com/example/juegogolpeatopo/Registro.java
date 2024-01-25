@@ -3,6 +3,7 @@ package com.example.juegogolpeatopo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +39,7 @@ public class Registro extends AppCompatActivity {
     private TextView txtFecha;
     private Button btRegistroR;
     private FirebaseAuth auth; //FIREBASE AUTENTICACION
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,15 +89,20 @@ public class Registro extends AppCompatActivity {
             }
         });
 
+        progressDialog = new ProgressDialog(Registro.this);
+        progressDialog.setMessage("Registrando, espere por favor");
+        progressDialog.setCancelable(false);
     }
 
     private void RegistrarJugador(String correo, String password) {
+        progressDialog.show();
         auth.createUserWithEmailAndPassword(correo, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //SI EL JUGADOR FUE REGISTRADO
                         if (task.isSuccessful()) {
+                            progressDialog.dismiss();
                             FirebaseUser user = auth.getCurrentUser();
                             int contador = 0;
 
@@ -126,6 +134,7 @@ public class Registro extends AppCompatActivity {
                             Toast.makeText(Registro.this, "Usuario Registro Exitosamente", Toast.LENGTH_SHORT).show();
                             finish();
                         }else{
+                            progressDialog.dismiss();
                             Toast.makeText(Registro.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -134,6 +143,7 @@ public class Registro extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
                         Toast.makeText(Registro.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
