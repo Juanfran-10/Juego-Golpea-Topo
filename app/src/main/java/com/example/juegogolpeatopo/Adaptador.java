@@ -7,6 +7,8 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,19 +16,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class Adaptador extends RecyclerView.Adapter<Adaptador.MyHolder> {
+public class Adaptador extends RecyclerView.Adapter<Adaptador.MyHolder> implements Filterable {
     private Context context;
     private List<Usuario> usuarioList;
+    private List<Usuario> usuarioListFull; // Lista completa sin filtrar
     private Typeface tf;
 
     //Constructor
     public Adaptador(Context context, List<Usuario> usuarioList) {
         this.context = context;
         this.usuarioList = usuarioList;
+        this.usuarioListFull = new ArrayList<>(usuarioList); // Copia de la lista completa
         this.tf = Typeface.createFromAsset(context.getAssets(), "fuentes/topo.TTF");
     }
 
@@ -46,16 +51,16 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyHolder> {
         }
     }
 
-    @androidx.annotation.NonNull
+    @NonNull
     @Override
     //Inflamos el diseño
-    public MyHolder onCreateViewHolder(@androidx.annotation.NonNull ViewGroup parent, int viewType) {
+    public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.jugadores, parent, false);
         return new MyHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@androidx.annotation.NonNull MyHolder holder, int i) {
+    public void onBindViewHolder(@NonNull MyHolder holder, int i) {
         //Obtenemos los datos del modelo
         final String imagen = usuarioList.get(i).getImagen();
         final String nombre = usuarioList.get(i).getNombre();
@@ -85,7 +90,6 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyHolder> {
             //Si el usuario tiene foto de perfil
             Picasso.get().load(imagen).into(holder.imagenJugador);
         } catch (Exception e) {
-            //Si no tiene foto de perfil
         }
 
         //Al hacer click en un jugador
@@ -110,4 +114,43 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.MyHolder> {
     public int getItemCount() {
         return usuarioList.size();
     }
+
+    // Implementa los métodos de Filterable
+
+    @Override
+    public Filter getFilter() {
+        return usuarioFilter;
+    }
+
+    private Filter usuarioFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Usuario> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                // Si no hay texto de búsqueda, muestra la lista completa
+                filteredList.addAll(usuarioListFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                // Filtra según el nombre u otros criterios que desees
+                for (Usuario usuario : usuarioListFull) {
+                    if (usuario.getNombre().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(usuario);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            usuarioList.clear();
+            usuarioList.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }

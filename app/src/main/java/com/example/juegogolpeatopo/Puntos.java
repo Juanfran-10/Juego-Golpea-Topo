@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,6 +32,7 @@ public class Puntos extends AppCompatActivity {
     private Adaptador adaptador;
     private List<Usuario> usuarioList;
     private FirebaseAuth firebaseAuth;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,6 +56,22 @@ public class Puntos extends AppCompatActivity {
         recyclerViewUsuarios.setHasFixedSize(true);
         recyclerViewUsuarios.setLayoutManager(layoutManager);
         usuarioList = new ArrayList<>();
+
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Puedes realizar alguna acción cuando se envía la búsqueda (opcional)
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Filtra tu lista de usuarios según el texto de búsqueda
+                adaptador.getFilter().filter(newText);
+                return false;
+            }
+        });
 
         ObtenerListaUsuarios();
     }

@@ -45,7 +45,7 @@ public class DetalleJugador extends AppCompatActivity {
         try {
             Picasso.get().load(imagen).into(imagenDetalle);
         } catch (Exception e) {
-            Picasso.get().load(R.drawable.mario).into(imagenDetalle);
+            //Picasso.get().load(R.drawable.mario).into(imagenDetalle);
         }
 
         //Cambio de letra
