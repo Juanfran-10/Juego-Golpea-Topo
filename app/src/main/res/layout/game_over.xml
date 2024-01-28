@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -52,32 +53,36 @@
             android:paddingTop="10dp"
             app:lottie_loop="true"
             app:lottie_autoPlay="true"/>
+
         <Button
             android:id="@+id/btJugarDeNuevo"
-            android:text="@string/btJugarDeNuevo"
-            android:background="@drawable/boton_personalizado"
-            android:layout_marginTop="10dp"
-            android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/boton_personalizado"
+            android:text="@string/btJugarDeNuevo"
+            android:textColor="#ffffff"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btIrMenu"
-            android:text="@string/btIrMenu"
-            android:background="@drawable/boton_personalizado"
-            android:layout_marginTop="10dp"
-            android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/boton_personalizado"
+            android:text="@string/btIrMenu"
+            android:textColor="#ffffff"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
         <Button
             android:id="@+id/btVerPuntos"
-            android:text="@string/btVerPuntos"
-            android:background="@drawable/boton_personalizado"
-            android:layout_marginTop="10dp"
-            android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/boton_personalizado"
+            android:text="@string/btVerPuntos"
+            android:textColor="#ffffff"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

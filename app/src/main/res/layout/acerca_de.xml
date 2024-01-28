@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center">
@@ -9,43 +10,45 @@
         android:layout_width="400dp"
         android:layout_height="320dp"
         android:background="#086A87"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="TextSizeCheck">
 
         <TextView
             android:id="@+id/txtDesarrolladoPor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:text="@string/txtDesarrolladoPor"
             android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        
+            android:textSize="25sp" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/programer"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:src="@drawable/programer" />
 
         <TextView
             android:id="@+id/txtDevNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
             android:text="@string/txtDevNombre"
             android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/ok"
-            android:text="@string/ok"
-            android:background="#FE2E64"
-            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:background="#FE2E64"
+            android:text="@string/ok"
+            android:textColor="#ffffff"
+            tools:ignore="TextContrastCheck" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

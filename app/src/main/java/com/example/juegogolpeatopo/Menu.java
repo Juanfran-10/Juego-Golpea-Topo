@@ -15,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -390,6 +391,11 @@ public class Menu extends AppCompatActivity {
         editText.setHint("Introduzca " + key);
         linearLayoutCompat.addView(editText);
         builder.setView(linearLayoutCompat);
+
+        if(key.equalsIgnoreCase("Edad")){
+            editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        }
+
         //Si hacemos click en actualizar
         builder.setPositiveButton("Actualizar", new DialogInterface.OnClickListener() {
             @Override
@@ -483,7 +489,7 @@ public class Menu extends AppCompatActivity {
 
                             // Cerrar sesión después de borrar el usuario
                             auth.signOut();
-                            startActivity(new Intent(Menu.this, Login.class));
+                            startActivity(new Intent(Menu.this, MainActivity.class));
                         } else {
                             Toast.makeText(this, "Error al borrar los datos del usuario", Toast.LENGTH_SHORT).show();
                         }

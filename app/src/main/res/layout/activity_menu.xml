@@ -23,13 +23,14 @@
             <!--TITULO MI PERFIL-->
             <TextView
                 android:id="@+id/txtMiPerfil"
-                android:text="@string/txtMiPerfil"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textColor="@color/miMarron"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/txtMiPerfil"
+                android:textColor="@color/miMarron"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="TextContrastCheck" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imagenPerfil"
@@ -42,56 +43,62 @@
             <!--UID-->
             <TextView
                 android:id="@+id/txtUid"
-                android:text="@string/txtUid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:text="@string/txtUid"
+                tools:ignore="TextContrastCheck" />
 
             <!--CORREO-->
             <TextView
                 android:id="@+id/txtCorreo"
-                android:text="@string/txtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:text="@string/txtCorreo"
+                tools:ignore="TextContrastCheck" />
 
             <!--NOMBRE DE USUARIO-->
             <TextView
                 android:id="@+id/txtNombre"
-                android:text="@string/txtNombre"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/txtNombre"
+                tools:ignore="TextContrastCheck" />
 
             <!--EDAD-->
             <TextView
                 android:id="@+id/txtEdad"
-                android:text="@string/txtEdad"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/txtEdad"
+                tools:ignore="TextContrastCheck" />
 
             <!--PAIS-->
             <TextView
                 android:id="@+id/txtPais"
-                android:text="@string/txtPais"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/txtPais"
+                tools:ignore="TextContrastCheck" />
 
             <!--FECHA DE REGISTRO-->
             <TextView
                 android:id="@+id/txtFechaM"
-                android:text="@string/txtFechaM"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/txtFechaM"
+                tools:ignore="TextContrastCheck" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
